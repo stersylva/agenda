@@ -1,7 +1,7 @@
 package com.example.ster_lenovo.cadernocamera.modelo;
 
 /**
- * Created by ster-lenovo on 20/05/2017.
+ * Created by ster-lenovo on 21/05/2017.
  */
 
 public class Caderno {
@@ -9,7 +9,6 @@ public class Caderno {
     private String nome;
     private String instituicao;
     private String orientador;
-
 
     public Long getId() {
         return id;
@@ -41,10 +40,5 @@ public class Caderno {
 
     public void setOrientador(String orientador) {
         this.orientador = orientador;
-    }
-
-    @Override
-    public String toString() {
-        return getId() + " - " + getNome();
     }
 }

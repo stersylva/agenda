@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.ster_lenovo.cadernocamera.dao.CadernoDAO;
+import com.example.ster_lenovo.cadernocamera.dao.CadernoDao;
 import com.example.ster_lenovo.cadernocamera.modelo.Caderno;
 
 import java.util.List;
@@ -20,8 +20,7 @@ public class ListaCadernoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_caderno);
 
-
-        CadernoDAO dao = new CadernoDAO(this);
+        CadernoDao dao = new CadernoDao(this);
         List<Caderno> cadernos = dao.buscarCadernos();
         dao.close();
 

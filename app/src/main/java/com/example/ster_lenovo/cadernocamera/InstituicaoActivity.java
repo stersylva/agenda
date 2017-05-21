@@ -15,7 +15,7 @@ public class InstituicaoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.instituicao);
 
-        String [] instituicao= {"Facol", "Faitvisa", "UFPE"} ;
+        String [] instituicao= {"Facol"} ;
         ListView listarInstituicao = (ListView) findViewById(R.id.listar_instituicao);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, instituicao);
         listarInstituicao.setAdapter(adapter);

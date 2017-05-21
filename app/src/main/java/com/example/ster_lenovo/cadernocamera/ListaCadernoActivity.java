@@ -8,6 +8,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.example.ster_lenovo.cadernocamera.dao.CadernoDAO;
+import com.example.ster_lenovo.cadernocamera.modelo.Caderno;
+
+import java.util.List;
+
 public class ListaCadernoActivity extends AppCompatActivity {
 
     @Override
@@ -15,17 +20,21 @@ public class ListaCadernoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_caderno);
 
-        String[] caderno = {"Português", "Matematica"};
+
+        CadernoDAO dao = new CadernoDAO(this);
+        List<Caderno> cadernos = dao.buscarCadernos();
+        dao.close();
+
         ListView listarCaderno = (ListView) findViewById(R.id.listar_caderno);
-        ArrayAdapter<String> adapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, caderno);
+        ArrayAdapter<Caderno> adapter = new ArrayAdapter<Caderno>(this,android.R.layout.simple_list_item_1, cadernos);
         listarCaderno.setAdapter(adapter);
 
         Button novoCardeno = (Button) findViewById(R.id.btn_novo_caderno);
-        novoCardeno.setOnClickListener(new View.OnClickListener(){
+        novoCardeno.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-               Intent intentVaiProCadastroCaderno = new Intent (ListaCadernoActivity.this, NovoCadernoActivity.class);
-                startActivity(intentVaiProCadastroCaderno);
+            public void onClick(View v) {
+                Intent intentVaiProCadastroInst = new Intent(ListaCadernoActivity.this, NovoCadernoActivity.class);
+                startActivity(intentVaiProCadastroInst);
             }
 
 

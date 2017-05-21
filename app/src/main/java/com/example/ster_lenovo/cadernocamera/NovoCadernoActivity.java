@@ -7,12 +7,19 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.ster_lenovo.cadernocamera.dao.CadernoDAO;
+import com.example.ster_lenovo.cadernocamera.modelo.Caderno;
+
 public class NovoCadernoActivity extends AppCompatActivity {
+
+    private CadernoHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.novo_caderno);
+
+        helper = new CadernoHelper(this);
     }
 
     @Override
@@ -26,7 +33,12 @@ public class NovoCadernoActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_formulario_ok:
-                Toast.makeText(NovoCadernoActivity.this, "Caderno Cadastrado", Toast.LENGTH_SHORT).show();
+                Caderno caderno = helper.pegaCaderno();
+                CadernoDAO dao = new CadernoDAO(this);
+                dao.insere(caderno);
+                dao.close();
+                Toast.makeText(NovoCadernoActivity.this, "Caderno " + caderno.getNome() +  " Cadastrado!", Toast.LENGTH_SHORT).show();
+
                 finish();
                 break;
         }

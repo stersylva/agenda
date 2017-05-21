@@ -20,13 +20,6 @@ public class ListaCadernoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_caderno);
 
-        CadernoDao dao = new CadernoDao(this);
-        List<Caderno> cadernos = dao.buscarCadernos();
-        dao.close();
-
-        ListView listarCaderno = (ListView) findViewById(R.id.listar_caderno);
-        ArrayAdapter<Caderno> adapter = new ArrayAdapter<Caderno>(this,android.R.layout.simple_list_item_1, cadernos);
-        listarCaderno.setAdapter(adapter);
 
         Button novoCardeno = (Button) findViewById(R.id.btn_novo_caderno);
         novoCardeno.setOnClickListener(new View.OnClickListener() {
@@ -38,5 +31,22 @@ public class ListaCadernoActivity extends AppCompatActivity {
 
 
         });
+    }
+
+    private void carregaLista() {
+        CadernoDao dao = new CadernoDao(this);
+        List<Caderno> cadernos = dao.buscarCadernos();
+        dao.close();
+
+        ListView listarCaderno = (ListView) findViewById(R.id.listar_caderno);
+        ArrayAdapter<Caderno> adapter = new ArrayAdapter<Caderno>(this,android.R.layout.simple_list_item_1, cadernos);
+        listarCaderno.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        carregaLista();
+
     }
 }

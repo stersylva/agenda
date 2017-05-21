@@ -41,4 +41,9 @@ public class Caderno {
     public void setOrientador(String orientador) {
         this.orientador = orientador;
     }
+
+    @Override
+        public String toString(){
+            return getId() + " - " + getNome();
+    }
 }

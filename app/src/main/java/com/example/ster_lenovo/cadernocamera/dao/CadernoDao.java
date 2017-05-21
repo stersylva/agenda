@@ -58,4 +58,11 @@ public class CadernoDao extends SQLiteOpenHelper {
         c.close();
         return cadernos;
     }
+
+    public void deleta(Caderno caderno) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        String[] params = {caderno.getId().toString()};
+        db.delete("Cadernos", "id = ?", params);
+    }
 }

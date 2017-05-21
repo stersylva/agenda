@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.ster_lenovo.cadernocamera.dao.CadernoDao;
 import com.example.ster_lenovo.cadernocamera.modelo.Caderno;
@@ -52,6 +55,26 @@ public class ListaCadernoActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         carregaLista();
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, final ContextMenu.ContextMenuInfo menuInfo) {
+        MenuItem deletar = menu.add("Deletar");
+        deletar.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+                Caderno caderno = (Caderno) listarCaderno.getItemAtPosition(info.position);
+
+                CadernoDao dao = new CadernoDao(ListaCadernoActivity.this);
+                dao.deleta(caderno);
+                dao.close();
+
+                Toast.makeText(ListaCadernoActivity.this, "Deletar o caderno " + caderno.getNome(), Toast.LENGTH_SHORT).show();
+                carregaLista();
+                return false;
+            }
+        });
     }
 
 }

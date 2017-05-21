@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CadernoCamera</string>
+    <string name="title_activity_curso">CursoActivity</string>
 </resources>

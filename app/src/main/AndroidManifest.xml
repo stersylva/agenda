@@ -16,9 +16,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ListaCadernoActivity" />
-        <activity android:name=".InstituicaoActivity" />
-        <activity android:name=".NovoCadernoActivity"></activity>
+        <activity
+            android:name=".ListaCadernoActivity"
+            android:label="Cadernos"/>
+        <activity
+            android:name=".InstituicaoActivity"
+            android:label="Instituições"/>
+        <activity
+            android:name=".NovoCadernoActivity"
+            android:label="Caderno"/>
+        <activity
+            android:name=".CursoActivity"
+            android:label="Cursos">
+        </activity>
     </application>
 
 </manifest>

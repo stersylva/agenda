@@ -27,6 +27,18 @@ public class ListaCadernoActivity extends AppCompatActivity {
         setContentView(R.layout.lista_caderno);
 
         listarCaderno = (ListView) findViewById(R.id.listar_caderno);
+        listarCaderno.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> lista, View item, int position, long id) {
+              Caderno caderno = (Caderno) listarCaderno.getItemAtPosition(position);
+
+                Toast.makeText(ListaCadernoActivity.this, "Caderno " + caderno.getNome() + " aberto!", Toast.LENGTH_SHORT).show();
+                Intent intentVaiProAssunto = new Intent(ListaCadernoActivity.this, AssuntosActivity.class);
+                startActivity(intentVaiProAssunto);
+            }
+        });
+
+
         Button novoCardeno = (Button) findViewById(R.id.btn_novo_caderno);
         novoCardeno.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +71,7 @@ public class ListaCadernoActivity extends AppCompatActivity {
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, final ContextMenu.ContextMenuInfo menuInfo) {
+
         MenuItem deletar = menu.add("Deletar");
         deletar.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
@@ -75,6 +88,7 @@ public class ListaCadernoActivity extends AppCompatActivity {
                 return false;
             }
         });
+
     }
 
 }

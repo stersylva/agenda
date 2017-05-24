@@ -18,17 +18,16 @@
         </activity>
         <activity
             android:name=".ListaCadernoActivity"
-            android:label="Cadernos"/>
+            android:label="Cadernos" />
         <activity
             android:name=".InstituicaoActivity"
-            android:label="Instituições"/>
+            android:label="Instituições" />
         <activity
             android:name=".NovoCadernoActivity"
-            android:label="Caderno"/>
+            android:label="Caderno" />
         <activity
-            android:name=".CursoActivity"
-            android:label="Cursos">
-        </activity>
+            android:name=".AssuntosActivity"
+            android:label="Assuntos"></activity>
     </application>
 
 </manifest>

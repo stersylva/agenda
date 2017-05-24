@@ -65,4 +65,7 @@ public class CadernoDao extends SQLiteOpenHelper {
         String[] params = {caderno.getId().toString()};
         db.delete("Cadernos", "id = ?", params);
     }
+
+
 }
+

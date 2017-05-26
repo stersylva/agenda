@@ -26,8 +26,9 @@
             android:name=".NovoCadernoActivity"
             android:label="Caderno" />
         <activity
-            android:name=".AssuntosActivity"
-            android:label="Assuntos"></activity>
+            android:name=".ListaAssuntosActivity"
+            android:label="Assuntos" />
+        <activity android:name=".NovoAssuntoActivity"></activity>
     </application>
 
 </manifest>

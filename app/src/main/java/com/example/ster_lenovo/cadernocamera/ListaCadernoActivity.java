@@ -33,7 +33,7 @@ public class ListaCadernoActivity extends AppCompatActivity {
               Caderno caderno = (Caderno) listarCaderno.getItemAtPosition(position);
 
                 Toast.makeText(ListaCadernoActivity.this, "Caderno " + caderno.getNome() + " aberto!", Toast.LENGTH_SHORT).show();
-                Intent intentVaiProAssunto = new Intent(ListaCadernoActivity.this, AssuntosActivity.class);
+                Intent intentVaiProAssunto = new Intent(ListaCadernoActivity.this, ListaAssuntosActivity.class);
                 startActivity(intentVaiProAssunto);
             }
         });

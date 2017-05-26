@@ -13,7 +13,7 @@ import java.util.List;
 
 public class CadernoDao extends SQLiteOpenHelper {
     public CadernoDao(Context context) {
-        super(context, "Agenda", null, 1);
+        super(context, "Agenda", null, 2);
     }
 
     @Override

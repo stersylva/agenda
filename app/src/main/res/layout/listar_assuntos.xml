@@ -9,9 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/listar_assuntos" />
-
     <Button
-        android:id="@+id/btn_novo_caderno"
+        android:id="@+id/btn_novo_assunto"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:text="+"
